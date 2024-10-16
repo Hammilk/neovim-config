@@ -1,0 +1,3 @@
+[submodule "lua/lazy"]
+	path = lua/lazy
+	url = https://github.com/Hammilk/neovim-config
