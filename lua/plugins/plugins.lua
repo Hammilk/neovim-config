@@ -26,6 +26,13 @@ require('lazy').setup({
 	        end
 	    },
     {'akinsho/bufferline.nvim'}, -- bufferline
+    {'nvim-telescope/telescope.nvim',
+        dependencies = { {'nvim-lua/plenary.nvim'} },
+        config = function()
+            require('telescope').setup{
+            }
+        end
+    },
 })
 
 local lspkind = require('lspkind')

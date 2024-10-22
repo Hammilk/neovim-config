@@ -7,5 +7,5 @@ vim.opt.expandtab = true  -- Convert tabs to spaces
 vim.opt.smartindent = true  -- Automatically indent new lines
 vim.opt.ignorecase = true -- Ignore case when searching
 vim.opt.smartcase = true -- Override ignore case if search ontains uppercase letters
-
+vim.opt.clipboard = "unnamedplus"
 
