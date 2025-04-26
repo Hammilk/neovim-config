@@ -1,36 +1,17 @@
+-- ~/.config/nvim/lua/plugins/conform.lua
 return {
-  "stevearc/conform.nvim",
-  event = { "BufWritePre" }, -- format on save
-  cmd = { "Format", "FormatWrite" }, -- optional manual commands
-  config = function()
-    require("conform").setup({
-      format_on_save = {
-        timeout_ms = 1000,
-        lsp_fallback = true, -- Use LSP formatting if no formatter is found
-      },
-      formatters_by_ft = {
-        python = { "isort", "black" },
-        lua = { "stylua" },
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        json = { "prettier" },
-        html = { "prettier" },
-        css = { "prettier" },
-        c = { "clang_format" },
-        cpp = { "clang_format" },
-      },
-      formatters = {
-        -- Optional: customize args if needed
-        clang_format = {
-          command = "clang-format",
-          args = { "--style=LLVM" }, -- or "Google", "Chromium", etc.
-        },
-        prettier = {
-          command = "prettier",
-          args = { "--stdin-filepath", "$FILENAME" },
-        },
-      },
-    })
-  end,
+	"stevearc/conform.nvim",
+	cmd = { "ConformInfo", "Format", "FormatWrite" }, -- load on command
+	event = { "BufWritePre" }, -- or BufReadPre if you want it earlier
+	config = function()
+		require("conform").setup({
+			format_on_save = {
+				timeout_ms = 1000,
+				lsp_fallback = true,
+			},
+			formatters_by_ft = {
+				python = { "black", "isort" },
+			},
+		})
+	end,
 }
-
